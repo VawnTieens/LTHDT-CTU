@@ -46,7 +46,7 @@ public class cau5 {
 		public static void main(String[] args) {
 			Scanner sc = new Scanner(System.in);
 			System.out.print("\nNhap vao 1 so nguyen de kiem tra: ");
-			int n = cau3.check_exception(sc);
+			int n = cau3.check_Exception(sc);
 
 			if(cau5.check_prime_Number(n) == false)
 				System.out.println("\nSo "+n+" khong phai la so nguyen to");
