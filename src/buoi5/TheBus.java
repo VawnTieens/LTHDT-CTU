@@ -77,9 +77,6 @@ public class TheBus {
 		for (int i = 0; i < m; i++) {
 			if (ds1[i].getLoai() == 'Y') {
 				ds1[i].in();
-			} else {
-				System.out.println("Khong co!");
-				sc.nextLine();
 			}
 		}
 
@@ -87,9 +84,6 @@ public class TheBus {
 		for (int i = 0; i < m; i++) {
 			if (ds1[i].getNPH().equals("20/05/22")) {
 				ds1[i].getKhachHang().in();
-			} else {
-				System.out.println("Khong co!");
-				sc.nextLine();
 			}
 		}
 	}
