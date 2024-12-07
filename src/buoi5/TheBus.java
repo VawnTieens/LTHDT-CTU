@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class TheBus {
 	private String maThe;
-	private String nph; // dd/mm/yy
+	private String nph;
 	private char loai;
-	private KHang k;// mot the bus thuoc ve 1 khach hang
+	private KHang k;
 
 	public TheBus() {
 		maThe = "";
@@ -33,16 +33,18 @@ public class TheBus {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Nhap ma the: ");
 		maThe = sc.nextLine();
-		System.out.println("Nhap nph (dd/mm/yy): ");
+		System.out.println("Nhap ngay phat hanh the(dd/mm/yy): ");
 		nph = sc.nextLine();
-		System.out.println("Nhap loai the(Y-year, M-month, D-Date): ");
+		System.out.println("Nhap loai the(H-hour, D-date, M-month, Y-year): ");
 		loai = sc.nextLine().charAt(0);
 		System.out.println("Nhap khach hang: ");
 		k.nhap();
 	}
 
 	public void in() {
-		System.out.println(maThe + " - " + nph + " - " + loai);
+		System.out.println("Ma the: " + maThe);
+		System.out.println("Ngay phat hanh: " + nph);
+		System.out.println("Loai the: " + loai);
 		k.in();
 	}
 
@@ -54,34 +56,42 @@ public class TheBus {
 		return nph;
 	}
 
-	public KHang getKHang() {
+	public KHang getKhachHang() {
 		return k;
 	}
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Nhap so luong the bus: ");
+		System.out.println("Nhap so luong the bus");
 		int m = sc.nextInt();
-		TheBus[] ds = new TheBus[m];
+		TheBus[] ds1 = new TheBus[m];
 		for (int i = 0; i < m; i++) {
-			ds[i] = new TheBus();
-			ds[i].nhap();
+			ds1[i] = new TheBus();
+			ds1[i].nhap();
 		}
 		for (int i = 0; i < m; i++) {
-			ds[i].in();
+			ds1[i].in();
 		}
-		//liet ke the co gia tri sd 1 nam 'Y'
-		System.out.println("The co loai su dung 1 nam: ");
-		for(int i=0; i<m; i++) {
-			if(ds[i].getLoai()=='Y')
-				ds[i].in();
+
+		System.out.println("\nThe bus co loai su dung 1 nam: ");
+		for (int i = 0; i < m; i++) {
+			if (ds1[i].getLoai() == 'Y') {
+				ds1[i].in();
+			} else {
+				System.out.println("Khong co!");
+				sc.nextLine();
+			}
 		}
-		//liet ke khach hang, the phat hanh ngay 20/05/22
-		System.out.println("Khach hang co the phat hanh ngay 20/05/22: ");
-		for(int i=0; i<m; i++) {
-			if(ds[i].getNPH().equals("20/05/22")) {
-				ds[i].getKHang().in();
+
+		System.out.println("\nKhach hang co the phat hanh ngay 20/05/22: ");
+		for (int i = 0; i < m; i++) {
+			if (ds1[i].getNPH().equals("20/05/22")) {
+				ds1[i].getKhachHang().in();
+			} else {
+				System.out.println("Khong co!");
+				sc.nextLine();
 			}
 		}
 	}
 }
+
